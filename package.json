@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --compilers js:babel-core/register",
     "build": "browserify app/index.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]"
   },
   "author": "",
@@ -19,6 +19,8 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "enzyme": "^2.4.1",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.2.1"
   }
 }
