@@ -1,17 +1,18 @@
-const expect = require('chai').expect;
-const shallow = require('enzyme').shallow;
+import React from 'react';
+import {shallow} from 'enzyme';
 
-const React = require('react');
+import Scramblr from '../app/components/Scramblr';
+import {expect} from 'chai';
 
-const Test = React.createClass({
-  render() {
-    return <div>Hello</div>;
-  }
-})
+describe('Scramlr', function () {
+  it('should greet known user', function () {
+    const test = shallow(<Scramblr name="Klaudijus"/>);
+    expect(test.text()).to.equal('Hello, Klaudijus!');
+  });
 
-describe('App', function () {
-  it('should work', function () {
-    const test = shallow(<Test />);
-    expect(test.text()).to.equal('Hello');
+  it('should ask for users name', function () {
+    const game = shallow(<Scramblr />);
+    const input = game.find('input');
+    expect(test.text()).to.equal('Hello, Anonymous!');
   });
 });
